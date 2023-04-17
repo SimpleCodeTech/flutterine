@@ -17,7 +17,7 @@ const colorMenuHeaderBorder = Color(0xFFFFC107);
 const colorLgPrimary = Color(0xff1F4B67);
 const colorLgDisabled = Color(0xff707070);
 const colorLgError = Color(0xffF06C44);
-const colorLgOrder = Color(0xFF47BB5C);
+const colorLgOrder = Color(0xFFFFC107);
 const colorLgNote = Color(0xFF1F4B67);
 const colorScroll = Color(0xFFFFC107);
 const colorTransparent = Colors.transparent;
@@ -57,9 +57,10 @@ const colorLabelValue = Color(0xFF707070);
 const colorBorders = Color(0xFFA0B3C7);
 const colorLinkButton = Color(0xFF1F4B67);
 
-const colorChecklistDefault = Color(0xFFE9EEF4);
-const colorChecklistOk = Color(0xffFFC107);
-const colorChecklistError = Color(0xffF06C44);
+const colorButtonDefault = Color(0xFFE9EEF4);
+const colorButtonOk = Color(0xffFFC107);
+const colorButtonError = Color(0xffF06C44);
+const colorButtonNotRelevant = Color(0xffA2A2A2);
 
 const displayDashboardDayDateFormat = "EEEE | dd.MM.yyyy";
 const dataPrivacyUrl = "https://www.simplecodetech.com";
@@ -88,3 +89,8 @@ const stringEmpty = "";
 const stringOk = "1";
 const stringError = "2";
 const stringNotRelevant = "9";
+
+const radioButtonNone = "";
+const radioButtonOrder = "Order";
+const radioButtonError = "Error";
+const radioButtonNote = "Note";

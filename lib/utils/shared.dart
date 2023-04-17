@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/styles.dart';
@@ -151,4 +153,12 @@ Widget miniFilledText(
           style: const TextStyle(color: colorButtonText, fontSize: 12)),
     ),
   );
+}
+
+String getRandomString(int length) {
+  String chars =
+      'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  Random rnd = Random();
+  return String.fromCharCodes(Iterable.generate(
+      length, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
 }

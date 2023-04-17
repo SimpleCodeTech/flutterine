@@ -19,7 +19,7 @@ class RoundedButtonsState extends State<RoundedButtons> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: colorPageBackground,
+        backgroundColor: colorPageSimpleCodeTech,
         appBar: appBar(context, "Rounded Buttons", 15, <Widget>[]),
         body: Center(
             child: Row(
@@ -30,7 +30,11 @@ class RoundedButtonsState extends State<RoundedButtons> {
                 minWidth: 24,
                 onPressed: () {
                   setState(() {
-                    strStatus = stringOk;
+                    if (strStatus == stringOk) {
+                      strStatus = stringEmpty;
+                    } else {
+                      strStatus = stringOk;
+                    }
                   });
                 },
                 color: _color(strStatus, stringOk, "C"),
@@ -46,7 +50,11 @@ class RoundedButtonsState extends State<RoundedButtons> {
                 minWidth: 24,
                 onPressed: () async {
                   setState(() {
-                    strStatus = stringError;
+                    if (strStatus == stringError) {
+                      strStatus = stringEmpty;
+                    } else {
+                      strStatus = stringError;
+                    }
                   });
                 },
                 color: _color(strStatus, stringError, "C"),
@@ -61,7 +69,11 @@ class RoundedButtonsState extends State<RoundedButtons> {
                 minWidth: 24,
                 onPressed: () {
                   setState(() {
-                    strStatus = stringNotRelevant;
+                    if (strStatus == stringNotRelevant) {
+                      strStatus = stringEmpty;
+                    } else {
+                      strStatus = stringNotRelevant;
+                    }
                   });
                 },
                 color: _color(strStatus, stringNotRelevant, "C"),
@@ -150,24 +162,20 @@ class RoundedButtonsState extends State<RoundedButtons> {
       return (strValue) == stringOk ? colorWhite : colorIcon;
     }
     if (strType == stringOk && strColor == 'B') {
-      return (strValue) == stringOk ? colorButton : colorChecklistDefault;
+      return (strValue) == stringOk ? colorButton : colorButtonDefault;
     }
     if (strType == stringError && strColor == 'C') {
-      return (strValue) == stringError
-          ? colorChecklistError
-          : colorChecklistDefault;
+      return (strValue) == stringError ? colorButtonError : colorButtonDefault;
     }
     if (strType == stringError && strColor == 'T') {
       return (strValue) == stringError ? colorWhite : colorIcon;
     }
     if (strType == stringError && strColor == 'B') {
-      return (strValue) == stringError
-          ? colorChecklistError
-          : colorChecklistDefault;
+      return (strValue) == stringError ? colorButtonError : colorButtonDefault;
     }
     if (strType == stringNotRelevant && strColor == 'C') {
       return (strValue) == stringNotRelevant
-          ? colorButtonDisabled
+          ? colorButtonNotRelevant
           : colorAddBox;
     }
     if (strType == stringNotRelevant && strColor == 'T') {
@@ -175,8 +183,8 @@ class RoundedButtonsState extends State<RoundedButtons> {
     }
     if (strType == stringNotRelevant && strColor == 'B') {
       return (strValue) == stringNotRelevant
-          ? colorButtonDisabled
-          : colorChecklistDefault;
+          ? colorButtonNotRelevant
+          : colorButtonDefault;
     }
     return colorButton;
   }

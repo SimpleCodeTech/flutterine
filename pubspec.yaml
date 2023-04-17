@@ -47,6 +47,9 @@ dependencies:
   screenshot:
   mime:
   qr_code_scanner:
+  record:
+  just_audio:
+  flutter_slidable:
   advance_pdf_viewer:
     git:
       url: https://github.com/enveraltin/pdf_viewer.git

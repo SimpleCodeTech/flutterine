@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:flutterine/utils/constants.dart';
 
@@ -18,7 +20,7 @@ const appBarHeaderBorderDecoration = BoxDecoration(
 );
 
 const containerBoxShadow = BoxShadow(
-  offset: Offset(0, 1),
+  offset: Offset(0, 0.5),
   color: colorBlack12,
   blurRadius: 0.5,
 );
@@ -41,5 +43,22 @@ const containerBoxDecorationSave = BoxDecoration(
 const containerBoxDecorationMobileSave = BoxDecoration(
     gradient: linearGradientMobileSave,
     borderRadius: containerBorderRadiusAll12,
+    color: colorWhite,
+    boxShadow: [containerBoxShadow]);
+
+const linearGradientDefault =
+    LinearGradient(stops: [0.005, 0], colors: [colorLgOrder, colorWhite]);
+const linearGradientDefaultMobile =
+    LinearGradient(stops: [0.01, 0], colors: [colorLgOrder, colorWhite]);
+
+const containerBoxDecorationDefault = BoxDecoration(
+    gradient: linearGradientDefault,
+    borderRadius: containerBorderRadiusAll,
+    color: colorWhite,
+    boxShadow: [containerBoxShadow]);
+
+const containerBoxDecorationDefaultMobile = BoxDecoration(
+    gradient: linearGradientDefaultMobile,
+    borderRadius: containerBorderRadiusAll,
     color: colorWhite,
     boxShadow: [containerBoxShadow]);

@@ -3,7 +3,10 @@ import 'package:flutterine/screens/features/customer_signature.dart';
 import 'package:flutterine/screens/features/image_pdf_listview.dart';
 import 'package:flutterine/screens/features/pdf_file_viewer.dart';
 import 'package:flutterine/screens/features/qr_code_scanner.dart';
+import 'package:flutterine/screens/features/radio_buttons.dart';
+import 'package:flutterine/screens/features/record_play_audio.dart';
 import 'package:flutterine/screens/features/rounded_buttons.dart';
+import 'package:flutterine/screens/features/slidable_panel.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/responsive.dart';
 import 'package:flutterine/utils/shared.dart';
@@ -55,6 +58,21 @@ class FeaturesState extends State<Features> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const RoundedButtons()),
+          );
+        } else if (strText == "Record audio" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RecordPlayAudio()),
+          );
+        } else if (strText == "Slidable panel" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SlidablePanel()),
+          );
+        } else if (strText == "Radio buttons" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RadioButtons()),
           );
         }
       },
@@ -139,6 +157,14 @@ class FeaturesState extends State<Features> {
                       addVerticalSpacing(20),
                       _addButton(
                           'Rounded buttons', Icons.circle_rounded, false),
+                      addVerticalSpacing(20),
+                      _addButton('Record audio', Icons.mic_rounded, false),
+                      addVerticalSpacing(20),
+                      _addButton(
+                          'Slidable panel', Icons.sledding_rounded, false),
+                      addVerticalSpacing(20),
+                      _addButton(
+                          'Radio buttons', Icons.sledding_rounded, false),
                       addVerticalSpacing(isMobile ? 30 : 100),
                     ],
                   ),
