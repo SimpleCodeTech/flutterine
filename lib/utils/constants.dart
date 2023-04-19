@@ -65,6 +65,7 @@ const colorButtonNotRelevant = Color(0xffA2A2A2);
 const displayDashboardDayDateFormat = "EEEE | dd.MM.yyyy";
 const dataPrivacyUrl = "https://www.simplecodetech.com";
 const aGBUrl = "https://www.simplecodetech.com";
+const flutterUrl = "https://flutter.dev/";
 
 const double strokeSlim = 1.0;
 const double strokeThin = 3.0;

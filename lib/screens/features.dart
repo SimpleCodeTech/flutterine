@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterine/screens/features/circular_menu.dart';
 import 'package:flutterine/screens/features/customer_signature.dart';
 import 'package:flutterine/screens/features/image_pdf_listview.dart';
 import 'package:flutterine/screens/features/pdf_file_viewer.dart';
@@ -7,6 +8,7 @@ import 'package:flutterine/screens/features/radio_buttons.dart';
 import 'package:flutterine/screens/features/record_play_audio.dart';
 import 'package:flutterine/screens/features/rounded_buttons.dart';
 import 'package:flutterine/screens/features/slidable_panel.dart';
+import 'package:flutterine/screens/features/web_view.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/responsive.dart';
 import 'package:flutterine/utils/shared.dart';
@@ -73,6 +75,16 @@ class FeaturesState extends State<Features> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const RadioButtons()),
+          );
+        } else if (strText == "Web view" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const WebView()),
+          );
+        } else if (strText == "Circular menu" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const CircularMenu()),
           );
         }
       },
@@ -163,8 +175,12 @@ class FeaturesState extends State<Features> {
                       _addButton(
                           'Slidable panel', Icons.sledding_rounded, false),
                       addVerticalSpacing(20),
-                      _addButton(
-                          'Radio buttons', Icons.sledding_rounded, false),
+                      _addButton('Radio buttons', Icons.radio_button_on_rounded,
+                          false),
+                      addVerticalSpacing(20),
+                      _addButton('Web view', Icons.language_rounded, false),
+                      addVerticalSpacing(20),
+                      _addButton('Circular menu', Icons.menu_rounded, false),
                       addVerticalSpacing(isMobile ? 30 : 100),
                     ],
                   ),
