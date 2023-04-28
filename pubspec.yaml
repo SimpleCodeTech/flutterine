@@ -50,6 +50,7 @@ dependencies:
   record:
   just_audio:
   flutter_slidable:
+  thumbnailer:
   advance_pdf_viewer:
     git:
       url: https://github.com/enveraltin/pdf_viewer.git

@@ -3,15 +3,18 @@ import 'package:flutterine/screens/features/circular_menu.dart';
 import 'package:flutterine/screens/features/customer_signature.dart';
 import 'package:flutterine/screens/features/image_pdf_listview.dart';
 import 'package:flutterine/screens/features/pdf_file_viewer.dart';
+import 'package:flutterine/screens/features/pdf_thumbnails.dart';
 import 'package:flutterine/screens/features/qr_code_scanner.dart';
 import 'package:flutterine/screens/features/radio_buttons.dart';
 import 'package:flutterine/screens/features/record_play_audio.dart';
 import 'package:flutterine/screens/features/rounded_buttons.dart';
+import 'package:flutterine/screens/features/sidebar.dart';
 import 'package:flutterine/screens/features/slidable_panel.dart';
 import 'package:flutterine/screens/features/web_view.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/responsive.dart';
 import 'package:flutterine/utils/shared.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Features extends StatefulWidget {
   const Features({super.key});
@@ -44,7 +47,8 @@ class FeaturesState extends State<Features> {
         } else if (strText == "Image, PDF Listview" && !isDisabled) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ImagePDFListview()),
+            MaterialPageRoute(
+                builder: (context) => const ImagePDFListview(intIndex: 0)),
           );
         } else if (strText == "QR code scanner" && !isDisabled) {
           Navigator.push(
@@ -85,6 +89,16 @@ class FeaturesState extends State<Features> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const CircularMenu()),
+          );
+        } else if (strText == "Thumbnails" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const PDFThumbnails()),
+          );
+        } else if (strText == "Sidebar" && !isDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SideBar()),
           );
         }
       },
@@ -181,6 +195,11 @@ class FeaturesState extends State<Features> {
                       _addButton('Web view', Icons.language_rounded, false),
                       addVerticalSpacing(20),
                       _addButton('Circular menu', Icons.menu_rounded, false),
+                      addVerticalSpacing(20),
+                      _addButton(
+                          'Thumbnails', FontAwesomeIcons.thumbtack, false),
+                      addVerticalSpacing(20),
+                      _addButton('Sidebar', Icons.view_sidebar_rounded, false),
                       addVerticalSpacing(isMobile ? 30 : 100),
                     ],
                   ),

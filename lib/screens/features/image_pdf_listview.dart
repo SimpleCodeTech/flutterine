@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const
-
 import 'dart:convert';
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +7,8 @@ import 'package:flutterine/utils/shared.dart';
 import 'package:photo_view/photo_view.dart';
 
 class ImagePDFListview extends StatefulWidget {
-  const ImagePDFListview({super.key});
+  final int intIndex;
+  const ImagePDFListview({super.key, required this.intIndex});
 
   @override
   ImagePDFListviewState createState() => ImagePDFListviewState();
@@ -18,15 +17,17 @@ class ImagePDFListview extends StatefulWidget {
 class ImagePDFListviewState extends State<ImagePDFListview> {
   int intSelectedIndex = 0;
   bool isLoading = true;
-  late PDFDocument document;
+  PDFDocument? document;
 
   List<String> filePaths = [];
 
   @override
   void initState() {
-    _initFiles();
     super.initState();
+    _initFiles();
   }
+
+  setIndex() {}
 
   Future _initFiles() async {
     final Map<String, dynamic> assets =
@@ -38,6 +39,9 @@ class ImagePDFListviewState extends State<ImagePDFListview> {
           .toList();
     });
     setState(() {
+      intSelectedIndex = widget.intIndex;
+
+      loadDocument(intSelectedIndex);
       isLoading = false;
     });
   }
@@ -56,7 +60,7 @@ class ImagePDFListviewState extends State<ImagePDFListview> {
   @override
   Widget build(BuildContext context) {
     final PageController controller =
-        PageController(initialPage: intSelectedIndex);
+        PageController(initialPage: 0, keepPage: false);
     Size contextSize = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: colorPageBackground,
@@ -93,7 +97,9 @@ class ImagePDFListviewState extends State<ImagePDFListview> {
                                       imageProvider: Image.asset(
                                               filePaths[intSelectedIndex])
                                           .image)
-                                  : isPDFDocument(filePaths[intSelectedIndex])
+                                  : isPDFDocument(
+                                              filePaths[intSelectedIndex]) &&
+                                          document != null
                                       ? PDFViewer(
                                           indicatorText:
                                               colorPageSimpleCodeTech,
@@ -104,7 +110,7 @@ class ImagePDFListviewState extends State<ImagePDFListview> {
                                                 color: colorButton),
                                           ),
                                           showPicker: false,
-                                          document: document,
+                                          document: document!,
                                           showNavigation: false,
                                           enableSwipeNavigation: true,
                                         )

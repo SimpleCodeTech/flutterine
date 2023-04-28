@@ -191,8 +191,9 @@ class RecordPlayAudioState extends State<RecordPlayAudio> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    if (_valContactlessAudio != null)
+                                    if (_valContactlessAudio != null) {
                                       Navigator.pop(context);
+                                    }
                                   },
                                   child: Container(
                                       alignment: Alignment.center,

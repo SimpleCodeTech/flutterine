@@ -1,10 +1,18 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutterine/utils/app_drawer.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/styles.dart';
 import 'package:intl/intl.dart';
 import 'package:mime/mime.dart';
+import 'package:thumbnailer/thumbnailer.dart';
+
+Widget addLine() {
+  return Container(
+    height: 1,
+    decoration: BoxDecoration(border: Border.all(color: colorButton12)),
+  );
+}
 
 PreferredSizeWidget appBar(BuildContext context, String strTitle,
     double dblfontSize, List<Widget> actions,
@@ -86,6 +94,12 @@ bool isPDFDocument(String path) {
   return mimeType == 'application/pdf';
 }
 
+String getMimeType(String path) {
+  final mimeType = lookupMimeType(path);
+
+  return mimeType!;
+}
+
 Widget miniIcon(IconData icon, Color iconColor,
     {double iconSize = 27,
     bool addBorder = false,
@@ -161,4 +175,20 @@ String getRandomString(int length) {
   Random rnd = Random();
   return String.fromCharCodes(Iterable.generate(
       length, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
+}
+
+Widget thumnailFromFile(
+    String filePath, String fileType, BuildContext context, double dblSize) {
+  Widget widget = Thumbnail(
+    dataResolver: () async {
+      return (await DefaultAssetBundle.of(context).load(filePath))
+          .buffer
+          .asUint8List();
+    },
+    mimeType: fileType,
+    widgetSize: dblSize,
+    decoration: WidgetDecoration(
+        backgroundColor: colorWhite, iconColor: colorButton, wrapperSize: 24),
+  );
+  return widget;
 }

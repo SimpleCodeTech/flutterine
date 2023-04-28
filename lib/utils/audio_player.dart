@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart' as ap;
 import 'package:flutterine/utils/constants.dart';
-import 'package:flutterine/utils/shared.dart';
 
 class AudioPlayer extends StatefulWidget {
   /// Path from where to play recorded audio
