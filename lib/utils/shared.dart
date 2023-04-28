@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutterine/utils/app_drawer.dart';
 import 'package:flutterine/utils/constants.dart';
 import 'package:flutterine/utils/styles.dart';
 import 'package:intl/intl.dart';

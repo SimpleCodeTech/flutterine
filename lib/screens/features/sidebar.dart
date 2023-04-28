@@ -33,7 +33,7 @@ class SideBarState extends State<SideBar> {
             <Widget>[]),
         drawer: AppDrawer(keyVal: keyVal),
         body: const Center(
-          child: CircularProgressIndicator(color: colorButton),
+          child: Text('Side Menu'),
         ));
   }
 }
